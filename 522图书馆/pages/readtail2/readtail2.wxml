@@ -1,0 +1,31 @@
+<!--pages/readtail2/readtail2.wxml-->
+<view 
+class='list' 
+wx:for='{{listData}}' 
+wx:key='{{index}}' 
+data-num='{{item.bookId}}'>
+  <view>
+    <text>书号：{{item.bookId}}</text>
+  </view>
+  <view>
+    <text>图书名：{{item.bookName}}</text>
+  </view>
+  <view>
+  <text>作者：{{item.author}}</text>
+  </view>
+  <view>
+  <text>译者：{{item.translator}}</text>
+  </view>
+   <view>
+  <text>价格：{{item.price}}</text>
+  </view>
+   <view>
+  <text>ISBNCode：{{item.isbncode}}</text>
+  </view>
+   <view>
+  <text>出版社：{{item.publishCompany}}</text>
+  </view>
+    <view>
+  <text>出版时间：{{item.comeUpTime}}</text>
+  </view>
+</view>

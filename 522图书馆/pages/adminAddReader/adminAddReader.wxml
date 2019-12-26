@@ -1,0 +1,25 @@
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <view>借阅号</view>
+    <input name='UserId' type='text' placeholder='请输入借阅号' value='12'></input>
+     <view>用户名</view>
+    <input name='UserName' type='text' placeholder='请输入用户名' value='小红'></input>
+    <view>初试密码</view>
+    <input name='Password' type='text' placeholder='请输入用户名' value='12345'></input>
+    <view>学院</view>
+    <input name='Departments' type='text' placeholder='请输入学院' value='生物学院'></input>
+    <view>专业</view>
+    <input name='Major' type='text' placeholder='请输入专业' value='生物'></input>
+    <view>电话</view>
+    <input name='Phone' type='text' placeholder='请输入电话' value='1234567'></input>
+    <view>邮箱</view>
+    <input name='Email' type='text' placeholder='请输入邮箱' value='123@qq.com'></input>
+    <view>借阅上限</view>
+    <input name='Max' type='text' placeholder='请输入借阅上限' value='10'></input>
+    <view>借阅期限</view>
+    <input name='Time' type='text' placeholder='请输入借阅期限' value='10'></input>
+  </view>
+  <button form-type='submit'>确定加入</button>
+</form>
+
+

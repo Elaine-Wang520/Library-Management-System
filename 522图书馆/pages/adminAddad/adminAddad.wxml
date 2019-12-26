@@ -1,0 +1,18 @@
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <view>编号</view>
+    <input name='AdId' type='text' placeholder='请输入编号' value='5'></input>
+    <view>用户名</view>
+    <input name='AdName' type='text' placeholder='请输入用户名' value='小张'></input>
+    <view>初试密码</view>
+    <input name='AdPassword' type='password' placeholder='请输入初始密码' value='123456'></input>
+    <view>电话</view>
+    <input name='AdPhone' type='text' placeholder='请输入电话' value='123456789'></input>
+    <view>邮箱</view>
+    <input name='AdEmail' type='text' placeholder='请输入邮箱' value='123456@qq.com'></input> 
+  </view>
+  <button form-type='submit'>确定添加</button>
+</form>
+
+
+

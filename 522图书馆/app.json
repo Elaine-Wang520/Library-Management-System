@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/record2/record2",
+    "pages/record1/record1",
+   
+    "pages/readtail2/readtail2",    
+    "pages/login1/login1",
+    "pages/system/system",
+    "pages/book/book",    
+    "pages/userInfo/userInfo",
+     
+    "pages/userdetail/userdetail",  
+    "pages/BookAdmin/BookAdmin",
+    "pages/bookdetail/bookdetail",
+    "pages/admindetail/admindetail",
+    "pages/adSearchBook/adSearchBook",
+    "pages/adPersonal/adPersonal",
+    "pages/adOutBook/adOutBook",
+    "pages/adReturnBook/adReturnBook",
+    "pages/adCheckBook/adCheckBook",
+    "pages/adAlterBook/adAlterBook",
+    "pages/adAddBook/adAddBook",
+    "pages/adBorrowBook/adBorrowBook",
+   
+    "pages/login/login",
+    "pages/adminAddad/adminAddad",
+    "pages/adminAddReader/adminAddReader",
+    "pages/adminAlterReader/adminAlterReader",
+    "pages/adminAlterAd/adminAlterAd",
+    "pages/adminOutAd/adminOutAd",
+    "pages/adminOutReader/adminOutReader",
+    "pages/adminPersonal/adminPersonal",
+    "pages/adminSearchAd/adminSearchAd",
+    "pages/adminSearchReader/adminSearchReader",
+    
+    "pages/user/user",
+    
+    "pages/SystemAdmin/SystemAdmin",
+    "pages/readerPersonal/readerPersonal",
+    "pages/readerAlterData/readerAlterData",
+    "pages/readerAlterPaswd/readerAlterPaswd",
+    "pages/readerBorrowed/readerBorrowed",
+    "pages/readerBorrowing/readerBorrowing",
+    "pages/logs/logs",
+    "pages/readtail/readtail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text":"登录",
+        "pagePath":"pages/login1/login1"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

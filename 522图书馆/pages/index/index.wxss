@@ -1,0 +1,17 @@
+image{
+  width: 750rpx;
+  height: 200rpx;
+}
+.header{
+  height: 80rpx;
+  padding-top: 40rpx;
+  font-size: 34rpx;
+  background-color:  #66B5FF;
+  display: flex;
+  justify-content: space-around;
+}
+input{
+  padding: 20rpx;
+  border: 1px solid #66B5FF;
+  height: 100rpx;
+}

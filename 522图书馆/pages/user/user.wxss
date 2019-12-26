@@ -1,0 +1,8 @@
+/* pages/user/user.wxss */
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.my{
+  font-size: 40rpx;
+}

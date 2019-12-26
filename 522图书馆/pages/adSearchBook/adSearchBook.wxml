@@ -1,0 +1,8 @@
+<!--pages/adSearchBook/adSearchBook.wxml-->
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <view>搜索图书信息</view>
+    <input name='id' type='text' placeholder='请输入图书信息' value='2'></input>
+</view>
+  <button form-type='submit'>搜索</button>
+</form>

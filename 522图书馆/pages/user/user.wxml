@@ -1,0 +1,12 @@
+<view class='header'>
+<text class='my'>个人中心</text>
+<i-avatar class='userphoto' src="/images/userphoto.jpg" size="large"></i-avatar>
+</view>
+<i-cell-group>
+    <i-cell title="基本资料" is-link url="/pages/readerPersonal/readerPersonal"></i-cell>
+    <i-cell title="修改资料" is-link url="/pages/readerAlterData/readerAlterData"></i-cell>   
+    <i-cell title="修改密码" is-link url="/pages/readerAlterPaswd/readerAlterPaswd"></i-cell>
+    <i-cell title="在借图书" is-link url="/pages/readerBorrowing/readerBorrowing"></i-cell>
+    <i-cell title="借阅记录" is-link url="/pages/readerBorrowed/readerBorrowed"></i-cell>
+</i-cell-group>
+

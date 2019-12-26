@@ -1,0 +1,7 @@
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <view>借阅号</view>
+    <input name='UserId' type='text' placeholder='请输入借阅号' value='1'></input>
+</view>
+  <button form-type='submit'>确定删除</button>
+</form>

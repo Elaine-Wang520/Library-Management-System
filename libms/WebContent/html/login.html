@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>登录</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="../style/login.css">
+    <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="../script/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    	function change(){
+    		var result=$(".role").val()
+    		var userid = document.getElementById("userid").value;
+			var password = document.getElementById("password").value;
+            if (result!=0) {
+                window.open("/CheckLongin?result="+result+"&userid="+userid+"&password="+password)
+            }
+        }
+        function password_f(){
+            alert("亲，请到教务系统修改密码！");
+        }
+        function createXMLHttpRequest() {
+    		var XMLHttpRequest1;
+    		//检查浏览器是否支持 XMLHttpRequest 对象 window.XMLHttpRequest
+    		if (window.XMLHttpRequest) {
+    			// 适用于 IE7+, Firefox, Chrome, Opera, Safari
+    			XMLHttpRequest1 = new XMLHttpRequest();
+    		} else if (window.ActiveXObject) {//不支持XMLHttpRequest对象，则创建 ActiveXObject对象
+    			try {
+    				XMLHttpRequest1 = new ActiveXObject("Msxml2.XMLHTTP");
+    			} catch (e) {
+    				//适用于IE5，IE6
+    				XMLHttpRequest1 = new ActiveXObject("Microsoft.XMLHTTP");
+    			}
+    		}
+    		return XMLHttpRequest1;
+    	}
+    	function ajax() {
+    		//param1与param2就是用户在输入框的两个参数
+    		var result=$(".role").val()
+    		var userid=document.getElementById("param1").value;
+    		var password=document.getElementById("param2").value;
+    		var XMLHttpRequest1 = createXMLHttpRequest();
+    		//指明相应页面  
+    		//var url = "./ajaxRequest";
+    		var url="./CheckLongin"//使用注解
+    		XMLHttpRequest1.open("post", url, true);
+    		//这里没法解释，你所有JavaScript的请求头都这样写就对了，不会乱码  
+    		XMLHttpRequest1.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    		//对于ajaxRequest，本js.html将会传递param1与param2给你。  
+    		XMLHttpRequest1.send("userid=" + userid + "&password=" + password+"&result="+result);
+    		//对于返回结果怎么处理的问题  
+    		XMLHttpRequest1.onreadystatechange = function() {
+    			//这个4代表已经发送完毕之后  
+    			if (XMLHttpRequest1.readyState == 4) {
+    				//200代表正确收到了返回结果  
+    				if (XMLHttpRequest1.status == 200) {
+    					//弹出返回结果  
+    					alert(XMLHttpRequest1.responseText);
+    				} else {
+    					//如果不能正常接受结果，你肯定是断网，或者我的服务器关掉了。  
+    					alert("网络连接中断！");
+    				}
+    			}
+    		};
+    	}
+    </script>
+</head>
+<body>
+<div class="login_page">
+	<div class="page_top"></div>
+	<div class="header"> 
+		<img src="../images/logo.png">
+		<div class="hello_word">中山图书馆欢迎您</div>
+		<div class="clear"></div>
+	</div>
+	<div class="login">
+		<div class="login_part" >
+			<select class="role">
+				<option value="1">读者</option>
+				<option value="2">图书管理员</option>
+				<option value="3">系统管理员</option>
+			</select>
+			<hr class="lion" />
+            <div class="login_input">
+            	<div class="user"><i class="fa fa-user"></i></div>
+            	<input type="text" id="userid" value="请输入通行证号"onfocus="if (value =='请输入通行证号'){value=''}" onblur="if (value=='') {value='请输入通行证号'}"/>&nbsp;<span class="text_red">*</span>
+            	<div class="user"><i class="fa fa-lock"></i></div>
+            	<input type="password" id="password"/>&nbsp;<span class="text_red">*</span>
+            </div>
+            <div class="login_btn" onclick="change()">登录</div>
+            <div class="password_f" onclick="password_f()">忘记密码 ？</div>
+		</div>
+		<div class="clear"></div>
+		<div class="from">@Copyright重庆理工大学中山图书馆</div>
+	</div>
+</div>
+</body>
+</html>

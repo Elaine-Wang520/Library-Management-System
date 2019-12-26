@@ -1,0 +1,8 @@
+<!--pages/adOutBook/adOutBook.wxml-->
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <view>图书编号</view>
+    <input name='BookId' type='text' placeholder='请输入图书编号' value='1'></input>
+</view>
+  <button form-type='submit'>确定删除</button>
+</form>

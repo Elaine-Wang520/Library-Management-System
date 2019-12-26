@@ -1,0 +1,18 @@
+<view class='head'>个人中心</view>
+<view class="book_logo">
+  <view><i-avatar class='userphoto' src="/images/userphoto.jpg" size="large"></i-avatar></view>
+ <view class="reader_name">{{listData.userName}}</view> 
+</view>
+
+<view class="menu">
+  <view class='li' bindtap='handleTap' data-num='1'>基本资料</view>
+  <view class='li' bindtap='handleTap' data-num='2'>修改资料</view>
+  <view class='li' bindtap='handleTap' data-num='3'>修改密码</view>
+  <view class='li' bindtap='handleTap' data-num='4'>在借图书</view>
+  <view class='li' bindtap='handleTap' data-num='5'>借阅记录</view>	
+</view>
+<button class='logout' bindtap='logout'>注销</button>
+<view class="footer">
+<br/>   
+	</view>
+

@@ -1,0 +1,22 @@
+<view><text>在借图书</text></view>
+<view 
+class='list' 
+wx:for='{{listData}}' 
+wx:key='{{index}}' 
+data-num='{{item.borrowId}}'>
+  <view>
+    <text>借阅号：{{item.userId}}</text>
+  </view>
+  <view>
+    <text>图书名：{{item.bookName}}</text>
+  </view>
+  <view>
+    <text>应还日期：{{item.shouldTime}}</text>
+  </view>
+  <view>
+  <text>已借:{{borrowed}}本</text><text>剩余可借:{{rest}}本</text>
+  </view>
+</view>
+
+
+

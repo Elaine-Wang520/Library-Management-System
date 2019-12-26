@@ -1,0 +1,12 @@
+.my{
+  font-size: 50rpx;
+}
+.li{
+  height: 100rpx;
+  margin-left: 30rpx;
+  padding-top: 30rpx;
+}
+button{
+  color:whitesmoke;
+  background-color: coral;
+}

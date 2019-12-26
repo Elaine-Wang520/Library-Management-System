@@ -1,0 +1,16 @@
+<view class='header'>
+ <navigator url="../index/index" open-type="redirect">首页</navigator>
+</view>
+<view>
+<image src="/images/logo.png"></image>
+</view>
+<radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" wx:key="{{index}}">
+          <radio class='role_radio' value="{{index}}" checked="{{item.checked}}" />
+          {{item.name}}
+        </label>
+</radio-group>
+<form bindsubmit='handleAdd'>
+  <input name='id' type='text' placeholder='请输入图书信息' value=''></input>
+<button form-type='submit'>查询</button>
+</form>

@@ -1,0 +1,20 @@
+<!--pages/add/add.wxml-->
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <view>借阅号</view>
+    <input name='UserId' type='text' placeholder='借阅号'value='1'></input>
+    <view>图书编号</view>
+    <input name='BookId' type='text' placeholder='图书编号' value='2'></input>
+  </view>
+  <button form-type='submit'>验证</button>
+</form>
+<view>
+<text>借阅号：{{detailUser.userId}}</text>
+</view>
+<view>
+<text>图书名：{{detailD.bookName}}</text>
+</view>
+<view>
+<text>应还日期：{{returntime}}</text>
+</view>
+<button type='submit' bindtap='borrow'>确认借阅</button>

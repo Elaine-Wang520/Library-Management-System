@@ -1,0 +1,18 @@
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+  <view><text>管理员ID：{{listData.adId}}</text></view>
+  <view><text>管理员姓名：{{listData.adName}}</text></view>
+    <view>原密码</view>
+    <input name='oldpwd' type='password' placeholder='请输入原密码' value='123456'></input>
+     <view>新密码</view>
+    <input name='newpwd' type='password' placeholder='请输入新密码' value='123456'></input>
+    <view>请确认新密码</view>
+    <input name='AdPassword' type='password' type='请确认新密码' placeholder='请确认新密码' value='1111111'></input>
+    <view>电话</view>
+    <input name='AdPhone' type='number' placeholder='请输入电话号码' value='123123'></input>
+     <view>邮箱</view>
+    <input name='AdEmail' type='textarea' placeholder='请输入邮箱' value='1231232'></input>
+  </view>
+  <button form-type='submit'>提交修改</button>
+</form>
+

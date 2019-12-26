@@ -1,0 +1,8 @@
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <view>查询管理员信息</view>
+    <input name='id' type='text' placeholder='' value='2'></input>
+</view>
+  <button form-type='submit'>搜索</button>
+</form>
+

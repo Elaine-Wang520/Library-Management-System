@@ -1,0 +1,11 @@
+<!--pages/add/add.wxml-->
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+   <view>借阅号</view>
+    <input name='UserId' type='text' placeholder='请输入借阅号' value='1'></input>
+    <view>图书编号</view>
+    <input name='BookId' type='text' placeholder='请输入图书编号' value='2'></input>
+</view>
+  <button form-type='submit'>确定换书</button>
+</form>
+

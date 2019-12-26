@@ -1,0 +1,11 @@
+<text></text>
+<form>
+<view>姓名：{{listData.userName}}</view>
+<view>电话：{{listData.phone}}</view>
+<view>院系：{{listData.departments}}</view>
+<view>专业:{{listData.major}}</view>
+<view>邮箱:{{listData.email}}</view>
+<view>借阅上限:{{listData.max}}</view>
+<view></view>
+<view></view>
+</form>

@@ -1,0 +1,8 @@
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <view>编号</view>
+    <input name='AdId' type='text' placeholder='请输入编号' value='1'></input>
+</view>
+  <button form-type='submit'>确定删除</button>
+</form>
+

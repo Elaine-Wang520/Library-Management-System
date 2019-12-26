@@ -1,0 +1,29 @@
+<view class="login_page">
+	<view class="page_top"></view>
+	<view class="header"> 
+	  <view class="hello"><text>中山图书馆欢迎您</text></view>
+   <image src="/images/logo.png"></image>
+	</view>
+  <form bindsubmit='handleLogin'>
+	<view class="login">
+		<view class="login_part" >
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" wx:key="{{index}}">
+          <radio class='role_radio' value="{{index}}" checked="{{item.checked}}" />
+          {{item.name}}
+        </label>
+      </radio-group>
+      <view class='part1'>
+            <view class="login_input">        	
+            	<input type="text" value="2" name="UserId" placeholder='请输入ID'/><text class="text_red"></text>
+              </view>
+              <view class="login_input">      
+            	<input type="password" value='123456' name="Password" placeholder='请输入密码'/><text class="text_red"></text>
+              </view>
+        </view>   
+            <button form-type='submit' class='login_btn'>登录</button>
+		</view>
+	</view>
+  </form>
+</view>
+

@@ -1,0 +1,25 @@
+<!--pages/record2/record2.wxml-->
+<view 
+class='list' 
+wx:for='{{listData}}' 
+wx:key='{{index}}' 
+data-num='{{item.bookId}}'>
+<view>
+<text>借阅号：{{item.userId}}</text>
+</view>
+ <view>
+    <text>书号：{{item.bookId}}</text>
+  </view>
+  <view>
+    <text>图书名：{{item.bookName}}</text>
+  </view>
+<view>
+<text>借书时间：{{item.borrowTime}}</text>
+</view>
+<view>
+<text>应还时间：{{item.shouldTime}}</text>
+</view>
+<view>
+<text>还书时间：{{item.returnTime}}</text>
+</view>
+</view>

@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>LIBMS后台使用手册</title>
+<!-- 2019-05-16 周四 18:01 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">LIBMS后台使用手册</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Overview</a></li>
+<li><a href="#sec-2">2. 数据库设计</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 用户表(user)</a></li>
+<li><a href="#sec-2-2">2.2. 图书类别表 （booktype）</a></li>
+<li><a href="#sec-2-3">2.3. 图书表(book)</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. 接口说明</a>
+<ul>
+<li><a href="#sec-3-1">3.1. 用户模块</a></li>
+<li><a href="#sec-3-2">3.2. 图书类别模块</a></li>
+<li><a href="#sec-3-3">3.3. 图书评论模块</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+LIBMS(Library Management System)后台采用Java语言开发；控制层采用纯Servlet返回JSON,使用jackson包来转换Java对象为JSON字符串；数据访问层使用JDBC，数据库采用H2内存数据库。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 数据库设计</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+数据库名为test, 账号是sa, 密码为空。
+</p>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 用户表(user)</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+
+<pre class="src src-sql"> <span style="color: #a020f0;">CREATE</span> <span style="color: #a020f0;">TABLE</span> <span style="color: #483d8b;">USER</span>(
+        uid <span style="color: #228b22;">int</span> <span style="color: #a020f0;">NOT</span> <span style="color: #a020f0;">NULL</span> AUTO_INCREMENT ,
+        uname <span style="color: #228b22;">VARCHAR</span>(50),
+        upwd <span style="color: #228b22;">VARCHAR</span>(20),
+        <span style="color: #a020f0;">PRIMARY</span> <span style="color: #a020f0;">KEY</span>(uid)
+)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 图书类别表 （booktype）</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #a020f0;">CREATE</span> <span style="color: #a020f0;">TABLE</span> <span style="color: #0000ff;">BOOKTYPE</span>(
+        books <span style="color: #228b22;">int</span> <span style="color: #a020f0;">NOT</span> <span style="color: #a020f0;">NULL</span> AUTO_INCREMENT ,
+        tit <span style="color: #228b22;">VARCHAR</span>(500),
+        bigImg <span style="color: #228b22;">VARCHAR</span>(100),
+        <span style="color: #a020f0;">PRIMARY</span> <span style="color: #a020f0;">KEY</span>(books)
+)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 图书表(book)</h3>
+<div class="outline-text-3" id="text-2-3">
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #a020f0;">CREATE</span> <span style="color: #a020f0;">TABLE</span> <span style="color: #0000ff;">BOOKCOMMENT</span>(
+        id <span style="color: #228b22;">int</span> <span style="color: #a020f0;">NOT</span> <span style="color: #a020f0;">NULL</span> AUTO_INCREMENT ,
+        tit <span style="color: #228b22;">VARCHAR</span>(100),
+        intro <span style="color: #228b22;">VARCHAR</span>(200),
+        words text,
+        author <span style="color: #228b22;">VARCHAR</span>(50),
+        aPhoto <span style="color: #228b22;">VARCHAR</span>(100),
+        bigImg <span style="color: #228b22;">VARCHAR</span>(100),
+        clickNum <span style="color: #228b22;">int</span>,
+        great <span style="color: #228b22;">int</span>,
+        <span style="color: #a020f0;">PRIMARY</span> <span style="color: #a020f0;">KEY</span>(id)
+)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 接口说明</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 用户模块</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+URL路径：<a href="http://localhost:8080/user">http://localhost:8080/user</a>
+</p>
+
+<p>
+参数说明: 
+</p>
+<ul class="org-ul">
+<li>初始化数据：dispatch=init 
+会删除user表并重新创建表，并添加初始数据如下：
+
+<p>
+完整路径：<a href="http://localhost:8080/user?dispatch=init">http://localhost:8080/user?dispatch=init</a>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-js">  [{
+        <span style="color: #8b2252;">"userId"</span>: 1,
+        <span style="color: #8b2252;">"userName"</span>: <span style="color: #8b2252;">"root"</span>,
+        <span style="color: #8b2252;">"userPwd"</span>: <span style="color: #8b2252;">"123456"</span>
+}, {
+        <span style="color: #8b2252;">"userId"</span>: 2,
+        <span style="color: #8b2252;">"userName"</span>: <span style="color: #8b2252;">"guest"</span>,
+        <span style="color: #8b2252;">"userPwd"</span>: <span style="color: #8b2252;">"123456"</span>
+}]
+</pre>
+</div>
+</li>
+
+<li>登录：dispatch=login&amp;userName=root&amp;userPwd=123456
+</li>
+</ul>
+<p>
+完整路径：<a href="http://localhost:8080/user?dispatch=login&userName=root&userPwd=123456">http://localhost:8080/user?dispatch=login&userName=root&userPwd=123456</a>
+</p>
+
+<p>
+登录验证，需要提交两个参数userName和userPwd。根据userName和userPwd从user表查询数据，如果存在就登录成功，把用户存入session, 属性名叫user，并返回json对象
+</p>
+<div class="org-src-container">
+
+<pre class="src src-js">{<span style="color: #8b2252;">"result"</span>:<span style="color: #8b2252;">"1"</span>}
+</pre>
+</div>
+
+<p>
+如果没有查询到对应的用户，则登录失败，返回Json对象
+</p>
+<div class="org-src-container">
+
+<pre class="src src-js">{<span style="color: #8b2252;">"result"</span>:<span style="color: #8b2252;">"0"</span>}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>退出登录：dispatch=logout
+</li>
+</ul>
+<p>
+完整路径：<a href="http://localhost:8080/user?dispatch=logout">http://localhost:8080/user?dispatch=logout</a>
+</p>
+
+<p>
+退出登录会清除session,返回字符串logout
+</p>
+
+<ul class="org-ul">
+<li>不带参数执行Init初始化数据操作，返回default字符串
+</li>
+</ul>
+<p>
+完整路径： <a href="http://localhost:8080/user">http://localhost:8080/user</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 图书类别模块</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+URL路径： <a href="http://localhost:8080/booktype">http://localhost:8080/booktype</a>
+</p>
+
+<p>
+参数说明：
+</p>
+<ul class="org-ul">
+<li>数据初始化： dispatch=init
+完整路径：<a href="http://localhost:8080/booktype?dispatch=init">http://localhost:8080/booktype?dispatch=init</a>
+</li>
+</ul>
+
+<p>
+首先删除booktype表，然后重新创建并插入数据如下：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-js"> [{
+        <span style="color: #8b2252;">"books"</span>: 1,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#31070;&#35805;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book5.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 2,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#25991;&#21270;&#29983;&#27963;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book7.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 3,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#20154;&#29289;&#33258;&#20256;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book8.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 4,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#19978;&#28023;&#35793;&#25991;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book9.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 5,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#29702;&#24819;&#22269;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book11.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 6,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#26032;&#32463;&#20856;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book12.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 7,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#23567;&#35828;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book13.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 8,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#20114;&#32852;&#32593;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book5.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 9,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#24515;&#29702;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book9.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 10,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#35835;&#23458;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book6.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 11,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#25991;&#33402;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book12.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 12,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#32463;&#27982;&#31649;&#29702;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book7.jpg"</span>
+}]
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>数据全表查询: dispatch=list
+查询booktype表中的所有数据，并返回json数据
+</li>
+</ul>
+
+<p>
+完整路径：<a href="http://localhost:8080/booktype?dispatch=list">http://localhost:8080/booktype?dispatch=list</a>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-js"> [{
+        <span style="color: #8b2252;">"books"</span>: 1,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#31070;&#35805;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book5.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 2,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#25991;&#21270;&#29983;&#27963;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book7.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 3,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#20154;&#29289;&#33258;&#20256;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book8.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 4,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#19978;&#28023;&#35793;&#25991;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book9.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 5,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#29702;&#24819;&#22269;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book11.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 6,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#26032;&#32463;&#20856;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book12.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 7,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#23567;&#35828;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book13.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 8,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#20114;&#32852;&#32593;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book5.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 9,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#24515;&#29702;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book9.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 10,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#35835;&#23458;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book6.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 11,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#25991;&#33402;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book12.jpg"</span>
+}, {
+        <span style="color: #8b2252;">"books"</span>: 12,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#32463;&#27982;&#31649;&#29702;"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/book7.jpg"</span>
+}]
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>不带参数， 不带参数执行数据初始化动作
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 图书评论模块</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+URL路径：<a href="http://localhost:8080/book">http://localhost:8080/book</a>
+</p>
+
+<p>
+参数说明：
+</p>
+<ul class="org-ul">
+<li>数据初始化：dispatch=init
+</li>
+</ul>
+<p>
+完整路径：<a href="http://localhost:8080/book?dispatch=init">http://localhost:8080/book?dispatch=init</a>
+</p>
+
+<p>
+首先删除bookcomment表，然后重新建表，并插入初始数据
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-js"> [{
+        <span style="color: #8b2252;">"id"</span>: 1,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#23545;&#65292;&#25105;&#23601;&#26159;&#37027;&#20010;&#36861;&#30007;&#29983;&#30340;&#22899;&#21516;&#23398;&#65292;&#20002;&#33080;&#21527;"</span>,
+        <span style="color: #8b2252;">"intro"</span>: <span style="color: #8b2252;">"&#32463;&#24120;&#26377;&#20154;&#36319;&#25105;&#35828;:&#8220;&#32918;&#26970;&#26970;&#65292;&#21548;&#35828;&#20320;&#36861;&#26519;&#20134;&#26999;&#65292;&#22899;&#29983;&#36861;&#30007;&#29983;&#32822;&#65292;&#20320;&#19981;&#35273;&#24471;&#20002;&#33080;&#21527;&#65311;&#8221;&#8220;&#32918;&#26970;&#26970;&#65292;&#20320;&#36825;&#26679;&#19981;&#34892;&#30340;&#65292;&#35841;&#20808;&#20027;&#21160;&#35841;&#20808;&#36755;&#12290;&#8221;"</span>,
+        <span style="color: #8b2252;">"words"</span>: <span style="color: #8b2252;">"&#22823;&#19968;&#20844;&#20849;&#35838;&#25105;&#20204;&#20013;&#25991;&#31995;&#21644;&#26426;&#30005;&#31995;&#19968;&#36215;&#19978;&#35838;&#65292;&#27599;&#27425;&#26202;&#21040;&#30340;&#25105;&#37117;&#35201;&#31449;&#22312;&#35762;&#21488;&#21069;&#65292;&#25195;&#25551;&#19968;&#22280;&#20004;&#20010;&#26426;&#30005;&#31995;&#30340;&#23487;&#21451;&#22312;&#21738;&#65292;&#20110;&#26159;&#65292;&#26519;&#20134;&#26999;&#23601;&#36825;&#26679;&#34987;&#25105;&#26080;&#24847;&#38388;&#25195;&#25551;&#20986;&#26469;&#12290;&#34429;&#19981;&#26159;&#19968;&#35265;&#20542;&#24515;&#21364;&#34987;&#24069;&#21040;&#65292;&#20197;&#33267;&#20110;&#27599;&#27425;&#37117;&#36319;&#23487;&#21451;&#25171;&#21548;&#20182;&#65292;&#27599;&#27425;&#37117;&#26399;&#24453;&#19982;&#20182;&#30456;&#36935;&#65292;&#27599;&#27425;&#19978;&#35838;&#20551;&#35013;&#30475;&#39118;&#26223;&#65292;&#20854;&#23454;&#22312;&#30475;&#20182;&#12290;&#26377;&#19968;&#27425;&#21435;&#39135;&#22530;&#25171;&#39184;&#30340;&#26102;&#20505;&#65292;&#20182;&#21018;&#22909;&#22312;&#25105;&#30340;&#21069;&#38754;&#25171;&#39184;&#65292;&#25105;&#24038;&#30475;&#21491;&#30475;&#65292;&#25163;&#37324;&#30340;&#39277;&#21345;&#32039;&#32039;&#21253;&#35065;&#22312;&#25163;&#24515;&#37324;&#65292;&#36225;&#27809;&#20154;&#27880;&#24847;&#30340;&#26102;&#20505;&#25226;&#39277;&#21345;&#20599;&#20599;&#25918;&#22238;&#21475;&#34955;&#37324;&#25105;&#36731;&#36731;&#22320;&#25293;&#25171;&#30528;&#20182;&#30340;&#32937;&#33152;&#65292;&#20182;&#30097;&#24785;&#22320;&#36716;&#36807;&#36523;&#65292;&#30636;&#38388;&#25105;&#30340;&#33080;&#26377;&#20123;&#21457;&#28907;&#65292;&#30524;&#30555;&#19968;&#30504;&#19981;&#30504;&#22320;&#30447;&#30528;&#20182;&#65292;&#28145;&#28145;&#22320;&#21534;&#20102;&#19968;&#21475;&#27668;&#65292;&#20551;&#35013;&#24456;&#28129;&#23450;&#22320;&#35828;: &#8220;&#21516;&#23398;&#65292;&#20320;&#39277;&#21345;&#33021;&#19981;&#33021;&#20511;&#25105;&#65292;&#25105;&#24102;&#38169;&#20102;&#65292;&#24102;&#25104;&#27700;&#21345;&#12290;&#8221;&#20110;&#26159;&#65292;&#29992;&#20102;&#20182;&#30340;&#39277;&#21345;&#21047;&#20102;&#19968;&#39039;&#39277;&#12290;&#21047;&#23436;&#65292;&#26377;&#20123;&#19981;&#22909;&#24847;&#24605;&#25226;&#39277;&#21345;&#36882;&#32473;&#20182;&#65292;&#8220;&#35874;&#35874;&#20320;&#65292;&#25105;&#38065;&#24536;&#35760;&#24102;&#20102;&#65292;&#33021;&#19981;&#33021;&#21457;&#32418;&#21253;&#32473;&#20320;&#12290;&#8221;&#26519;&#20134;&#26999;&#31505;&#20102;&#31505;&#65292;&#35828;: &#8220;&#19981;&#29992;&#20102;&#12290;&#8221;"</span>,
+        <span style="color: #8b2252;">"author"</span>: <span style="color: #8b2252;">"&#26376;&#22812;&#21548;&#38634;"</span>,
+        <span style="color: #8b2252;">"aPhoto"</span>: <span style="color: #8b2252;">"/image/img/photo1.jpg"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/pic1.jpg"</span>,
+        <span style="color: #8b2252;">"clickNum"</span>: 228,
+        <span style="color: #8b2252;">"great"</span>: 40
+}, {
+        <span style="color: #8b2252;">"id"</span>: 2,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#22312;&#36825;&#22330;&#23130;&#23035;&#20445;&#21355;&#25112;&#20013;&#65292;&#25105;&#36194;&#24471;&#22914;&#27492;&#33392;&#38590;"</span>,
+        <span style="color: #8b2252;">"intro"</span>: <span style="color: #8b2252;">"&#22312;&#36825;&#22330;&#23130;&#23035;&#20445;&#21355;&#25112;&#20013;&#65292;&#25105;&#36194;&#24471;&#22914;&#27492;&#33392;&#38590;&#65292;&#22899;&#29983;&#36861;&#30007;&#29983;&#32822;&#65292;&#20320;&#19981;&#35273;&#24471;&#20002;&#33080;&#21527;&#65311;&#8221;&#8220;&#32918;&#26970;&#26970;&#65292;&#20320;&#36825;&#26679;&#19981;&#34892;&#30340;&#65292;&#35841;&#20808;&#20027;&#21160;&#35841;&#20808;&#36755;&#12290;&#8221;"</span>,
+        <span style="color: #8b2252;">"words"</span>: <span style="color: #8b2252;">"&#22312;&#36825;&#22330;&#23130;&#23035;&#20445;&#21355;&#25112;&#20013;&#65292;&#25105;&#36194;&#24471;&#22914;&#27492;&#33392;&#38590;,&#22823;&#19968;&#20844;&#20849;&#35838;&#25105;&#20204;&#20013;&#25991;&#31995;&#21644;&#26426;&#30005;&#31995;&#19968;&#36215;&#19978;&#35838;&#65292;&#27599;&#27425;&#26202;&#21040;&#30340;&#25105;&#37117;&#35201;&#31449;&#22312;&#35762;&#21488;&#21069;&#65292;&#25195;&#25551;&#19968;&#22280;&#20004;&#20010;&#26426;&#30005;&#31995;&#30340;&#23487;&#21451;&#22312;&#21738;&#65292;&#20110;&#26159;&#65292;&#26519;&#20134;&#26999;&#23601;&#36825;&#26679;&#34987;&#25105;&#26080;&#24847;&#38388;&#25195;&#25551;&#20986;&#26469;&#12290;&#34429;&#19981;&#26159;&#19968;&#35265;&#20542;&#24515;&#21364;&#34987;&#24069;&#21040;&#65292;&#20197;&#33267;&#20110;&#27599;&#27425;&#37117;&#36319;&#23487;&#21451;&#25171;&#21548;&#20182;&#65292;&#27599;&#27425;&#37117;&#26399;&#24453;&#19982;&#20182;&#30456;&#36935;&#65292;&#27599;&#27425;&#19978;&#35838;&#20551;&#35013;&#30475;&#39118;&#26223;&#65292;&#20854;&#23454;&#22312;&#30475;&#20182;&#12290;&#26377;&#19968;&#27425;&#21435;&#39135;&#22530;&#25171;&#39184;&#30340;&#26102;&#20505;&#65292;&#20182;&#21018;&#22909;&#22312;&#25105;&#30340;&#21069;&#38754;&#25171;&#39184;&#65292;&#25105;&#24038;&#30475;&#21491;&#30475;&#65292;&#25163;&#37324;&#30340;&#39277;&#21345;&#32039;&#32039;&#21253;&#35065;&#22312;&#25163;&#24515;&#37324;&#65292;&#36225;&#27809;&#20154;&#27880;&#24847;&#30340;&#26102;&#20505;&#25226;&#39277;&#21345;&#20599;&#20599;&#25918;&#22238;&#21475;&#34955;&#37324;&#25105;&#36731;&#36731;&#22320;&#25293;&#25171;&#30528;&#20182;&#30340;&#32937;&#33152;&#65292;&#20182;&#30097;&#24785;&#22320;&#36716;&#36807;&#36523;&#65292;&#30636;&#38388;&#25105;&#30340;&#33080;&#26377;&#20123;&#21457;&#28907;&#65292;&#30524;&#30555;&#19968;&#30504;&#19981;&#30504;&#22320;&#30447;&#30528;&#20182;&#65292;&#28145;&#28145;&#22320;&#21534;&#20102;&#19968;&#21475;&#27668;&#65292;&#20551;&#35013;&#24456;&#28129;&#23450;&#22320;&#35828;: &#8220;&#21516;&#23398;&#65292;&#20320;&#39277;&#21345;&#33021;&#19981;&#33021;&#20511;&#25105;&#65292;&#25105;&#24102;&#38169;&#20102;&#65292;&#24102;&#25104;&#27700;&#21345;&#12290;&#8221;&#20110;&#26159;&#65292;&#29992;&#20102;&#20182;&#30340;&#39277;&#21345;&#21047;&#20102;&#19968;&#39039;&#39277;&#12290;&#21047;&#23436;&#65292;&#26377;&#20123;&#19981;&#22909;&#24847;&#24605;&#25226;&#39277;&#21345;&#36882;&#32473;&#20182;&#65292;&#8220;&#35874;&#35874;&#20320;&#65292;&#25105;&#38065;&#24536;&#35760;&#24102;&#20102;&#65292;&#33021;&#19981;&#33021;&#21457;&#32418;&#21253;&#32473;&#20320;&#12290;&#8221;&#26519;&#20134;&#26999;&#31505;&#20102;&#31505;&#65292;&#35828;: &#8220;&#19981;&#29992;&#20102;&#12290;&#8221;"</span>,
+        <span style="color: #8b2252;">"author"</span>: <span style="color: #8b2252;">"&#26376;&#22812;&#21548;&#38634;"</span>,
+        <span style="color: #8b2252;">"aPhoto"</span>: <span style="color: #8b2252;">"/image/img/photo2.jpg"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/pic2.jpg"</span>,
+        <span style="color: #8b2252;">"clickNum"</span>: 228,
+        <span style="color: #8b2252;">"great"</span>: 40
+}, {
+        <span style="color: #8b2252;">"id"</span>: 3,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#12304;3&#12305;&#22312;&#36825;&#22330;&#23130;&#23035;&#20445;&#21355;&#25112;&#20013;&#65292;&#25105;&#36194;&#24471;&#22914;&#27492;&#33392;&#38590;"</span>,
+        <span style="color: #8b2252;">"intro"</span>: <span style="color: #8b2252;">"&#12304;3&#12305;&#22312;&#36825;&#22330;&#23130;&#23035;&#20445;&#21355;&#25112;&#20013;&#65292;&#25105;&#36194;&#24471;&#22914;&#27492;&#33392;&#38590;&#65292;&#22899;&#29983;&#36861;&#30007;&#29983;&#32822;&#65292;&#20320;&#19981;&#35273;&#24471;&#20002;&#33080;&#21527;&#65311;&#8221;&#8220;&#32918;&#26970;&#26970;&#65292;&#20320;&#36825;&#26679;&#19981;&#34892;&#30340;&#65292;&#35841;&#20808;&#20027;&#21160;&#35841;&#20808;&#36755;&#12290;&#8221;"</span>,
+        <span style="color: #8b2252;">"words"</span>: <span style="color: #8b2252;">"&#12304;3&#12305;&#22312;&#36825;&#22330;&#23130;&#23035;&#20445;&#21355;&#25112;&#20013;&#65292;&#25105;&#36194;&#24471;&#22914;&#27492;&#33392;&#38590;,&#22823;&#19968;&#20844;&#20849;&#35838;&#25105;&#20204;&#20013;&#25991;&#31995;&#21644;&#26426;&#30005;&#31995;&#19968;&#36215;&#19978;&#35838;&#65292;&#27599;&#27425;&#26202;&#21040;&#30340;&#25105;&#37117;&#35201;&#31449;&#22312;&#35762;&#21488;&#21069;&#65292;&#25195;&#25551;&#19968;&#22280;&#20004;&#20010;&#26426;&#30005;&#31995;&#30340;&#23487;&#21451;&#22312;&#21738;&#65292;&#20110;&#26159;&#65292;&#26519;&#20134;&#26999;&#23601;&#36825;&#26679;&#34987;&#25105;&#26080;&#24847;&#38388;&#25195;&#25551;&#20986;&#26469;&#12290;&#34429;&#19981;&#26159;&#19968;&#35265;&#20542;&#24515;&#21364;&#34987;&#24069;&#21040;&#65292;&#20197;&#33267;&#20110;&#27599;&#27425;&#37117;&#36319;&#23487;&#21451;&#25171;&#21548;&#20182;&#65292;&#27599;&#27425;&#37117;&#26399;&#24453;&#19982;&#20182;&#30456;&#36935;&#65292;&#27599;&#27425;&#19978;&#35838;&#20551;&#35013;&#30475;&#39118;&#26223;&#65292;&#20854;&#23454;&#22312;&#30475;&#20182;&#12290;&#26377;&#19968;&#27425;&#21435;&#39135;&#22530;&#25171;&#39184;&#30340;&#26102;&#20505;&#65292;&#20182;&#21018;&#22909;&#22312;&#25105;&#30340;&#21069;&#38754;&#25171;&#39184;&#65292;&#25105;&#24038;&#30475;&#21491;&#30475;&#65292;&#25163;&#37324;&#30340;&#39277;&#21345;&#32039;&#32039;&#21253;&#35065;&#22312;&#25163;&#24515;&#37324;&#65292;&#36225;&#27809;&#20154;&#27880;&#24847;&#30340;&#26102;&#20505;&#25226;&#39277;&#21345;&#20599;&#20599;&#25918;&#22238;&#21475;&#34955;&#37324;&#25105;&#36731;&#36731;&#22320;&#25293;&#25171;&#30528;&#20182;&#30340;&#32937;&#33152;&#65292;&#20182;&#30097;&#24785;&#22320;&#36716;&#36807;&#36523;&#65292;&#30636;&#38388;&#25105;&#30340;&#33080;&#26377;&#20123;&#21457;&#28907;&#65292;&#30524;&#30555;&#19968;&#30504;&#19981;&#30504;&#22320;&#30447;&#30528;&#20182;&#65292;&#28145;&#28145;&#22320;&#21534;&#20102;&#19968;&#21475;&#27668;&#65292;&#20551;&#35013;&#24456;&#28129;&#23450;&#22320;&#35828;: &#8220;&#21516;&#23398;&#65292;&#20320;&#39277;&#21345;&#33021;&#19981;&#33021;&#20511;&#25105;&#65292;&#25105;&#24102;&#38169;&#20102;&#65292;&#24102;&#25104;&#27700;&#21345;&#12290;&#8221;&#20110;&#26159;&#65292;&#29992;&#20102;&#20182;&#30340;&#39277;&#21345;&#21047;&#20102;&#19968;&#39039;&#39277;&#12290;&#21047;&#23436;&#65292;&#26377;&#20123;&#19981;&#22909;&#24847;&#24605;&#25226;&#39277;&#21345;&#36882;&#32473;&#20182;&#65292;&#8220;&#35874;&#35874;&#20320;&#65292;&#25105;&#38065;&#24536;&#35760;&#24102;&#20102;&#65292;&#33021;&#19981;&#33021;&#21457;&#32418;&#21253;&#32473;&#20320;&#12290;&#8221;&#26519;&#20134;&#26999;&#31505;&#20102;&#31505;&#65292;&#35828;: &#8220;&#19981;&#29992;&#20102;&#12290;&#8221;"</span>,
+        <span style="color: #8b2252;">"author"</span>: <span style="color: #8b2252;">"&#26376;&#22812;&#21548;&#38634;"</span>,
+        <span style="color: #8b2252;">"aPhoto"</span>: <span style="color: #8b2252;">"/image/img/photo3.jpg"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/pic3.jpg"</span>,
+        <span style="color: #8b2252;">"clickNum"</span>: 228,
+        <span style="color: #8b2252;">"great"</span>: 60
+}, {
+        <span style="color: #8b2252;">"id"</span>: 4,
+        <span style="color: #8b2252;">"tit"</span>: <span style="color: #8b2252;">"&#12304;4&#12305;&#22312;&#36825;&#22330;&#23130;&#23035;&#20445;&#21355;&#25112;&#20013;&#65292;&#25105;&#36194;&#24471;&#22914;&#27492;&#33392;&#38590;"</span>,
+        <span style="color: #8b2252;">"intro"</span>: <span style="color: #8b2252;">"&#12304;4&#12305;&#22312;&#36825;&#22330;&#23130;&#23035;&#20445;&#21355;&#25112;&#20013;&#65292;&#25105;&#36194;&#24471;&#22914;&#27492;&#33392;&#38590;&#65292;&#22899;&#29983;&#36861;&#30007;&#29983;&#32822;&#65292;&#20320;&#19981;&#35273;&#24471;&#20002;&#33080;&#21527;&#65311;&#8221;&#8220;&#32918;&#26970;&#26970;&#65292;&#20320;&#36825;&#26679;&#19981;&#34892;&#30340;&#65292;&#35841;&#20808;&#20027;&#21160;&#35841;&#20808;&#36755;&#12290;&#8221;"</span>,
+        <span style="color: #8b2252;">"words"</span>: <span style="color: #8b2252;">"&#12304;4&#12305;&#22312;&#36825;&#22330;&#23130;&#23035;&#20445;&#21355;&#25112;&#20013;&#65292;&#25105;&#36194;&#24471;&#22914;&#27492;&#33392;&#38590;,&#22823;&#19968;&#20844;&#20849;&#35838;&#25105;&#20204;&#20013;&#25991;&#31995;&#21644;&#26426;&#30005;&#31995;&#19968;&#36215;&#19978;&#35838;&#65292;&#27599;&#27425;&#26202;&#21040;&#30340;&#25105;&#37117;&#35201;&#31449;&#22312;&#35762;&#21488;&#21069;&#65292;&#25195;&#25551;&#19968;&#22280;&#20004;&#20010;&#26426;&#30005;&#31995;&#30340;&#23487;&#21451;&#22312;&#21738;&#65292;&#20110;&#26159;&#65292;&#26519;&#20134;&#26999;&#23601;&#36825;&#26679;&#34987;&#25105;&#26080;&#24847;&#38388;&#25195;&#25551;&#20986;&#26469;&#12290;&#34429;&#19981;&#26159;&#19968;&#35265;&#20542;&#24515;&#21364;&#34987;&#24069;&#21040;&#65292;&#20197;&#33267;&#20110;&#27599;&#27425;&#37117;&#36319;&#23487;&#21451;&#25171;&#21548;&#20182;&#65292;&#27599;&#27425;&#37117;&#26399;&#24453;&#19982;&#20182;&#30456;&#36935;&#65292;&#27599;&#27425;&#19978;&#35838;&#20551;&#35013;&#30475;&#39118;&#26223;&#65292;&#20854;&#23454;&#22312;&#30475;&#20182;&#12290;&#26377;&#19968;&#27425;&#21435;&#39135;&#22530;&#25171;&#39184;&#30340;&#26102;&#20505;&#65292;&#20182;&#21018;&#22909;&#22312;&#25105;&#30340;&#21069;&#38754;&#25171;&#39184;&#65292;&#25105;&#24038;&#30475;&#21491;&#30475;&#65292;&#25163;&#37324;&#30340;&#39277;&#21345;&#32039;&#32039;&#21253;&#35065;&#22312;&#25163;&#24515;&#37324;&#65292;&#36225;&#27809;&#20154;&#27880;&#24847;&#30340;&#26102;&#20505;&#25226;&#39277;&#21345;&#20599;&#20599;&#25918;&#22238;&#21475;&#34955;&#37324;&#25105;&#36731;&#36731;&#22320;&#25293;&#25171;&#30528;&#20182;&#30340;&#32937;&#33152;&#65292;&#20182;&#30097;&#24785;&#22320;&#36716;&#36807;&#36523;&#65292;&#30636;&#38388;&#25105;&#30340;&#33080;&#26377;&#20123;&#21457;&#28907;&#65292;&#30524;&#30555;&#19968;&#30504;&#19981;&#30504;&#22320;&#30447;&#30528;&#20182;&#65292;&#28145;&#28145;&#22320;&#21534;&#20102;&#19968;&#21475;&#27668;&#65292;&#20551;&#35013;&#24456;&#28129;&#23450;&#22320;&#35828;: &#8220;&#21516;&#23398;&#65292;&#20320;&#39277;&#21345;&#33021;&#19981;&#33021;&#20511;&#25105;&#65292;&#25105;&#24102;&#38169;&#20102;&#65292;&#24102;&#25104;&#27700;&#21345;&#12290;&#8221;&#20110;&#26159;&#65292;&#29992;&#20102;&#20182;&#30340;&#39277;&#21345;&#21047;&#20102;&#19968;&#39039;&#39277;&#12290;&#21047;&#23436;&#65292;&#26377;&#20123;&#19981;&#22909;&#24847;&#24605;&#25226;&#39277;&#21345;&#36882;&#32473;&#20182;&#65292;&#8220;&#35874;&#35874;&#20320;&#65292;&#25105;&#38065;&#24536;&#35760;&#24102;&#20102;&#65292;&#33021;&#19981;&#33021;&#21457;&#32418;&#21253;&#32473;&#20320;&#12290;&#8221;&#26519;&#20134;&#26999;&#31505;&#20102;&#31505;&#65292;&#35828;: &#8220;&#19981;&#29992;&#20102;&#12290;&#8221;"</span>,
+        <span style="color: #8b2252;">"author"</span>: <span style="color: #8b2252;">"&#26376;&#22812;&#21548;&#38634;"</span>,
+        <span style="color: #8b2252;">"aPhoto"</span>: <span style="color: #8b2252;">"/image/img/photo4.jpg"</span>,
+        <span style="color: #8b2252;">"bigImg"</span>: <span style="color: #8b2252;">"/image/img/pic4.jpg"</span>,
+        <span style="color: #8b2252;">"clickNum"</span>: 228,
+        <span style="color: #8b2252;">"great"</span>: 40
+}]
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>新增图书评论： dispatch=add
+同时需要提交如下表单数据：
+<ul class="org-ul">
+<li>aPhoto
+</li>
+<li>author
+</li>
+<li>bigImg
+</li>
+<li>clickNum
+</li>
+<li>great
+</li>
+<li>intro
+</li>
+<li>tit
+</li>
+<li>words
+</li>
+</ul>
+</li>
+</ul>
+<p>
+执行完成后会在bookcomment表添加一条记录，返回字符串add
+</p>
+
+<ul class="org-ul">
+<li>删除图书评论： dispatch=delete
+需要提交参数: id
+
+<p>
+执行完成后会删除bookcomment表中相应Id的记录，返回字符串delete
+</p>
+</li>
+
+<li>修改图书评论： dispatch=update
+同时需要提交如下表单数据：
+<ul class="org-ul">
+<li>aPhoto
+</li>
+<li>author
+</li>
+<li>bigImg
+</li>
+<li>clickNum
+</li>
+<li>great
+</li>
+<li>intro
+</li>
+<li>tit
+</li>
+<li>words
+</li>
+<li>id
+</li>
+</ul>
+</li>
+</ul>
+<p>
+执行完成后会修改bookcomment表相应id的数据
+</p>
+
+<ul class="org-ul">
+<li>查询全表数据：dispatch=list
+</li>
+</ul>
+<p>
+执行全表查询，并返回json数据
+</p>
+
+<ul class="org-ul">
+<li>查询指定id的数据： dispatch=getbyid
+</li>
+</ul>
+<p>
+同时需要提交参数id
+执行完成后返回一条记录的json数据
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2019-05-16 周四 18:01</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<form bindsubmit='handleAdd'>
+<view>姓名：{{listData.userName}}</view>
+  <view class='cont'>
+    <view>原密码</view>
+    <input name='oldpwd' type='password' placeholder='请输入原密码'></input>
+    <view>新密码</view>
+    <input name='newpwd' type='password' placeholder='请输入新密码'></input>
+    <view>确认新密码</view>
+    <input name='renewpwd' type='password' placeholder='确认新密码' bindinput="renewpwdinput"></input>
+  </view>
+  <button form-type='submit'>确定修改</button>
+</form>
+
+
+

@@ -1,0 +1,24 @@
+.head{
+  font-size: 85rpx;
+  color:cornflowerblue;
+}
+.book_logo{
+  display: flex;
+  justify-content: space-between;
+}
+.reader_name{
+ margin-right: 250rpx;
+ margin-top:30rpx;
+}
+.menu{
+  border: 1rpx solid gainsboro;
+  height: 800rpx;
+}
+.li{
+  margin: 80rpx;
+  border-bottom: 1rpx solid rgb(221, 215, 215);
+}
+button{
+  color:whitesmoke;
+  background-color: coral;
+}

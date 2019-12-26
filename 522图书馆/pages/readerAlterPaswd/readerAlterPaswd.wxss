@@ -1,0 +1,14 @@
+/* pages/add/add.wxss */
+.cont{
+  padding:30rpx;
+  font-size: 30rpx;
+}
+.cont input{
+  border-bottom: 1px solid #d8d8d8;
+}
+.cont view{
+  margin: 20rpx 0;
+}
+button{
+  background-color: #66B5FF;
+}

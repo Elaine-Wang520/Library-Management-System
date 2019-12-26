@@ -1,0 +1,2 @@
+<!--pages/readtail/readtail.wxml-->
+<text>{{detailD.words}}</text>

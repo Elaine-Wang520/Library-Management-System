@@ -1,0 +1,15 @@
+<!--pages/admindetail/admindetail.wxml-->
+<form>
+<view>
+<text>图书管理员编号：{{detailD.adId}}</text>
+</view>
+<view>
+<text>图书管理员姓名：{{detailD.adName}}</text>
+</view>
+<view>
+<text>图书管理员电话:{{detailD.adPhone}}</text>
+</view>
+<view>
+<text>图书管理员邮箱：{{detailD.adEmail}}</text>
+</view>
+</form>

@@ -1,0 +1,20 @@
+<view class='header'>
+<text class='my'>图书管理员:{{listData.adName}}</text>
+</view>
+<i-cell-group>
+    <i-cell title="读者借书" is-link url="/pages/adBorrowBook/adBorrowBook"></i-cell>
+    <i-cell title="读者还书" is-link url="/pages/adReturnBook/adReturnBook"></i-cell>
+    <i-cell title="新书入库" is-link url="/pages/adAddBook/adAddBook"></i-cell>
+    <i-cell title="图书出库" is-link url="/pages/adOutBook/adOutBook"></i-cell>
+    <i-cell title="修改图书信息" is-link url="/pages/adAlterBook/adAlterBook"></i-cell>
+    <i-cell title="查阅借阅记录" is-link url="/pages/adCheckBook/adCheckBook"></i-cell>
+    <i-cell title="查阅图书信息" is-link url="/pages/adSearchBook/adSearchBook"></i-cell>
+</i-cell-group>
+ <view class='li' bindtap='handleTap'>管理员中心</view>	
+ <button bindtap='logout'>注销</button>
+ 
+
+
+
+
+

@@ -1,0 +1,11 @@
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <view class="phone">电话</view>
+    <input name='phone' type='text' placeholder='{{listData.phone}}' bindinput="phoneinput"></input>
+    <view class='email'>邮箱</view>
+    <input name='email' type='text' placeholder='{{listData.email}}' bindinput="emailinput"></input>
+  </view>
+  <button form-type='submit'>确定修改</button>
+</form>
+
+

@@ -1,0 +1,29 @@
+<!--pages/adAlterBook/adAlterBook.wxml-->
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+     <view>图书编号</view>
+    <input name='BookId' type='text' placeholder='请输入图书编号' value='1'></input>
+    <view>图书名称</view>
+    <input name='BookName' type='text' placeholder='请输入图书名称' value='C语言'></input>
+    <view>作者</view>
+    <input name='Author' type='text' placeholder='请输入作者' value='孙'></input>
+    <view>译者</view>
+    <input name='Translator' type='text' placeholder='请输入译者' value='周'></input>
+    <view>价格</view>
+    <input name='Price' type='text' placeholder='请输入价格' value='11'></input>
+    <view>ISBN编号</view>
+    <input name='ISBNCode' type='text' placeholder='请输入ISBN编号' value='188'></input>
+    <view>出版日期</view>
+    <input name='ComeUpTime' type='text' placeholder='请输入出版日期' value='2015-5-26 12:52:23'></input>
+    <view>出版社</view>
+    <input name='PublishCompany' type='text' placeholder='请输入出版社' value='机械工业出版社'></input>
+    <view>图书状态</view>
+    <input name='State' type='text' placeholder='请输入图书状态' value='1'></input>
+     <view>入库者</view>
+    <input name='EnteringMen' type='text' placeholder='请输入库者' value='王'></input>
+    <view>入库日期</view>
+    <input name='EnteringDate' type='text' placeholder='请输入入库日期' value='2016-5-26 12:52:23'></input>
+    
+</view>
+  <button form-type='submit'>提交修改</button>
+</form>

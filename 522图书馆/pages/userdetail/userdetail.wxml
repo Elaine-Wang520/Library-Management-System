@@ -1,0 +1,29 @@
+<form>
+<view>
+<text>借阅号：{{detailD.userId}}</text>
+</view>
+<view>
+<text>用户名：{{detailD.userName}}</text>
+</view>
+<view>
+<text>学院：{{detailD.departments}}</text>
+</view>
+<view>
+<text>专业：{{detailD.major}}</text>
+</view>
+<view>
+<text>电话：{{detailD.phone}}</text>
+</view>
+<view>
+<text>邮箱：{{detailD.email}}</text>
+</view>
+<view>
+<text>借阅上限：{{detailD.max}}</text>
+</view>
+<view>
+<text>借阅期限：{{detailD.time}}</text>
+</view>
+<!-- <view>
+<text>在借数量：{{detail.}}</text>
+</view> -->
+</form>

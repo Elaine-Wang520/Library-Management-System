@@ -1,0 +1,31 @@
+  <view>查询借阅记录</view>
+<radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" wx:key="{{index}}">
+          <radio class='role_radio' value="{{index}}" checked="{{item.checked}}" />
+          {{item.name}}
+        </label>
+</radio-group>
+<form bindsubmit='handleAdd'>
+  <view class='cont'>
+    <input name='UserId' type='text' placeholder='请输入图书编号/借阅名/借阅号' value='1'></input>
+</view>
+  <button form-type='submit'>搜索</button>
+</form>
+<view 
+class='list' 
+wx:for='{{listData}}' 
+wx:key='{{index}}' 
+data-num='{{item.borrowId}}'>
+  <view>
+    <text>借阅号：{{item.userId}}</text>
+  </view>
+  <view>
+    <text>图书名：{{item.bookName}}</text>
+  </view>
+  <view>
+    <text>应还日期：{{item.shouldTime}}</text>
+  </view>
+  <view>
+    <text>实还日期：{{item.returnTime}}</text>
+  </view>
+</view>

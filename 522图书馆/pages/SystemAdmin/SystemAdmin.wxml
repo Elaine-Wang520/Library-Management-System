@@ -1,0 +1,18 @@
+<!--pages/SystemAdmin/SystemAdmin.wxml-->
+<view class='header'>
+<text class='my'>系统管理员</text>
+</view>
+<i-cell-group>
+    <i-cell title="录入新读者" is-link url="/pages/adminAddReader/adminAddReader"></i-cell>
+    <i-cell title="删除读者" is-link url="/pages/adminOutReader/adminOutReader"></i-cell>
+    <i-cell title="修改读者信息" is-link url="/pages/adminAlterReader/adminAlterReader"></i-cell>
+    <i-cell title="录入图书管理员" is-link url="/pages/adminAddad/adminAddad"></i-cell>
+    <i-cell title="删除图书管理员" is-link url="/pages/adminOutAd/adminOutAd"></i-cell>
+    <i-cell title="修改管理员信息" is-link url="/pages/adminAlterAd/adminAlterAd"></i-cell>
+    <i-cell title="查看读者信息" is-link url="/pages/adminSearchReader/adminSearchReader"></i-cell>
+    <i-cell title="查看管理员信息" is-link url="/pages/adminSearchAd/adminSearchAd"></i-cell>
+    <i-cell title="管理员中心" bindtap='handleTap'></i-cell>
+</i-cell-group>
+<button bindtap='logout'>注销</button>
+
+
